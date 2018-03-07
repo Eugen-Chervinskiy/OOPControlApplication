@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace OOPControlApplication
 {
@@ -78,21 +79,11 @@ namespace OOPControlApplication
 
         public string GetResolution(string text)
         {
-            string size = GetSize(text);
-            string resolution = "";
-            for (int i = text.IndexOf(size)+size.Length; i < text.Length; i++)
-            {
-                if (char.IsDigit(text[i]) || text[i].Equals('х'))
-                {
-                    if (text[i].Equals(';'))
-                    {
-                        break;
-                    }
-                    resolution += text[i];
-                    
-                }
-            }
-            return resolution;
+           
+            Regex regex = new Regex(@"\d{4}х\d{4}");
+            Match resolution = regex.Match(text);
+
+            return resolution.ToString();
         }
 
         public string GetDuration(string text)
@@ -145,6 +136,8 @@ namespace OOPControlApplication
 
                 }
             }
+
+
 
             return metaData;
         }
