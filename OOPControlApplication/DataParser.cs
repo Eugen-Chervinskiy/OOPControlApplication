@@ -27,20 +27,25 @@ namespace OOPControlApplication
 
         public string GetFileName(string text)
         {
+            string size = GetSize(text);
             string fileName = "";
-            for (int i = text.IndexOf(':'); i < text.Length; i++)
+            for (int i = text.IndexOf(':'); i < text.IndexOf(size); i++)
             {
-
+                if (char.IsLetterOrDigit(text[i]) || char.IsPunctuation(text[i]))
+                {
+                    fileName += text[i];
+                }
             }
-            return fileName;
+            return fileName.Trim(new Char[] { ':','(',')'});
         }
 
         public string GetExtension(string text)
         {
+            string fileName = GetFileName(text);
             string extension = "";
-            for (int i = 0; i < text.Length; i++)
+            for (int i = fileName.LastIndexOf('.'); i < fileName.Length; i++)
             {
-
+                extension += fileName[i];
             }
             return extension;
         }
@@ -61,13 +66,33 @@ namespace OOPControlApplication
 
         public string GetResolution(string text)
         {
+            string size = GetSize(text);
             string resolution = "";
+            for (int i = text.IndexOf(size)+size.Length; i < text.Length; i++)
+            {
+                if (char.IsDigit(text[i]) || text[i].Equals('х'))
+                {
+                    if (text[i].Equals(';'))
+                    {
+                        break;
+                    }
+                    resolution += text[i];
+                    
+                }
+            }
             return resolution;
         }
 
         public string GetDuration(string text)
         {
             string duration = "";
+            for (int i = text.LastIndexOf(';'); i < text.Length; i++)
+            {
+                if (char.IsDigit(text[i]) || char.IsLetter(text[i]))
+                {
+                    duration += text[i];
+                }
+            }
             return duration;
         }
     }

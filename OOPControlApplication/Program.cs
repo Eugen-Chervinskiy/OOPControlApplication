@@ -21,10 +21,16 @@ namespace OOPControlApplication
 
             DataParser parser = new DataParser();
 
+            Console.WriteLine(parser.GetFileName(fileData[2]));
+            Console.WriteLine(parser.GetExtension(fileData[2]));
             Console.WriteLine(parser.GetSize(fileData[4]));
             Console.WriteLine(parser.GetCategory(fileData[4]));
+            Console.WriteLine(parser.GetDuration(fileData[4]));
+
 
             Console.ReadKey();
         }
+
+        
     }
 }
