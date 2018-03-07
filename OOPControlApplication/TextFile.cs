@@ -24,7 +24,7 @@ namespace OOPControlApplication
         public override void PrintFileData()
         {
             base.PrintFileData();
-            Console.WriteLine($"{this.fielDescription}");
+            Console.WriteLine($"Description: {this.fielDescription}\r\n");
         }
     }
 }

@@ -74,7 +74,7 @@ namespace OOPControlApplication
                     description += text[i];
                 }
             }
-            return description;
+            return description.TrimStart(new char[] { ';','.','/','@','_'});
 
         }
 
@@ -111,42 +111,92 @@ namespace OOPControlApplication
         }
 
 
-        public IEnumerable<File> CreateData(string[] text)
+        //public List<File> CreateData(string[] text)
+        //{
+
+        //    for (int i = 0; i < text.Length; i++)
+        //    {
+        //        string category = GetCategory(text[i]);
+        //        switch (category)
+        //        {
+        //            case "Text":
+        //                metaData.Add(new TextFile(GetFileName(text[i]), 
+        //                                          GetExtension(text[i]), 
+        //                                          GetSize(text[i]), 
+        //                                          GetDescription(text[i])));
+        //                return metaData;
+
+        //            case "Image":
+        //                metaData.Add(new ImageFile(GetFileName(text[i]),
+        //                                          GetExtension(text[i]),
+        //                                          GetSize(text[i]),
+        //                                          GetResolution(text[i])));
+        //                return metaData;
+
+        //            case "Movie":
+        //                metaData.Add(new MovieFile(GetFileName(text[i]),
+        //                                          GetExtension(text[i]),
+        //                                          GetSize(text[i]),
+        //                                          GetResolution(text[i]),
+        //                                          GetDuration(text[i])));
+        //                return metaData;
+
+        //            default:return metaData;
+
+        //        }
+        //    }
+
+        //    return metaData;
+        //}
+
+        public List<File> CreateData(string text)
         {
 
             for (int i = 0; i < text.Length; i++)
             {
-                string category = GetCategory(text[i]);
+                string category = GetCategory(text);
                 switch (category)
                 {
                     case "Text":
-                        metaData.Add(new TextFile(GetFileName(text[i]), 
-                                                  GetExtension(text[i]), 
-                                                  GetSize(text[i]), 
-                                                  GetDescription(text[i])));
+                        metaData.Add(new TextFile(GetFileName(text),
+                                                  GetExtension(text),
+                                                  GetSize(text),
+                                                  GetDescription(text)));
                         return metaData;
 
                     case "Image":
-                        metaData.Add(new ImageFile(GetFileName(text[i]),
-                                                  GetExtension(text[i]),
-                                                  GetSize(text[i]),
-                                                  GetResolution(text[i])));
+                        metaData.Add(new ImageFile(GetFileName(text),
+                                                  GetExtension(text),
+                                                  GetSize(text),
+                                                  GetResolution(text)));
                         return metaData;
 
                     case "Movie":
-                        metaData.Add(new MovieFile(GetFileName(text[i]),
-                                                  GetExtension(text[i]),
-                                                  GetSize(text[i]),
-                                                  GetResolution(text[i]),
-                                                  GetDuration(text[i])));
+                        metaData.Add(new MovieFile(GetFileName(text),
+                                                  GetExtension(text),
+                                                  GetSize(text),
+                                                  GetResolution(text),
+                                                  GetDuration(text)));
                         return metaData;
 
-                    default:return metaData.DefaultIfEmpty();
-                        
+                    default: return metaData;
+
                 }
             }
 
             return metaData;
+        }
+
+
+        public void PrintDataInfo()
+        {
+            Console.WriteLine("Text Files:");
+            foreach (File item in metaData)
+            {
+                
+                item.PrintFileData();
+            }
+            
         }
     }
 }

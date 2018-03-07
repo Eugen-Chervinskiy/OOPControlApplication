@@ -25,7 +25,7 @@ namespace OOPControlApplication
         public override void PrintFileData()
         {
             base.PrintFileData();
-            Console.WriteLine($"{this.fileResolution}");
+            Console.WriteLine($"Resolution: {this.fileResolution}\r\n");
         }
     }
 }

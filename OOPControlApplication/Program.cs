@@ -13,6 +13,7 @@ namespace OOPControlApplication
             string dataInput = @"Text:file.txt(6B);Some string content
                                  Image: img.bmp(19MB); 1920х1080
                                  Text:data.txt(12B); Another string
+                                 Movie:logan.2017.mkv(19GB); 1920х1080;3h12m
                                  Text:data1.txt(7B); Yet another string
                                  Movie:logan.2017.mkv(19GB); 1920х1080; 2h12m";
 
@@ -21,12 +22,14 @@ namespace OOPControlApplication
 
             DataParser parser = new DataParser();
 
-            Console.WriteLine(parser.GetFileName(fileData[2]));
-            Console.WriteLine(parser.GetExtension(fileData[2]));
-            Console.WriteLine(parser.GetSize(fileData[4]));
-            Console.WriteLine(parser.GetCategory(fileData[4]));
-            Console.WriteLine(parser.GetDuration(fileData[4])); 
+           
+            Console.WriteLine("-------Parser Results--------");
 
+            for (int i = 0; i < fileData.Length; i++)
+            {
+                parser.CreateData(fileData[i]);
+            }
+            parser.PrintDataInfo();
 
             Console.ReadKey();
         }

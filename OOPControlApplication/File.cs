@@ -23,8 +23,8 @@ namespace OOPControlApplication
         public virtual void PrintFileData()
         {
             Console.WriteLine($"{this.fileName}\r\n" +
-                $"{this.fileExtension}\r\n" +
-                $"{this.fileSize}");
+                $"Extension: {this.fileExtension}\r\n" +
+                $"Size:{this.fileSize}");
             
         }
 

@@ -28,7 +28,7 @@ namespace OOPControlApplication
         public override void PrintFileData()
         {
             base.PrintFileData();
-            Console.WriteLine($"{this.fileDuration}");
+            Console.WriteLine($"Duration: {this.fileDuration}");
         }
     }
 }
