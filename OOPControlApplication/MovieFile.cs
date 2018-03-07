@@ -10,7 +10,7 @@ namespace OOPControlApplication
     {
         private readonly string fileDuration;
 
-        protected MovieFile(string fileName, 
+        public MovieFile(string fileName, 
                             string fileExtension, 
                             string fileSize, 
                             string fileResolution,
@@ -23,6 +23,12 @@ namespace OOPControlApplication
 
         {
             this.fileDuration = fileDuration;
+        }
+
+        public override void PrintFileData()
+        {
+            base.PrintFileData();
+            Console.WriteLine($"{this.fileDuration}");
         }
     }
 }

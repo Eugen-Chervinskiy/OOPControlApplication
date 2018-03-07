@@ -9,7 +9,7 @@ namespace OOPControlApplication
     class DataParser
     {
         private readonly string[] categories = { "Text","Image", "Movie" };
-
+        private readonly List<File> metaData = new List<File>();
 
 
         public string GetCategory(string text)
@@ -64,6 +64,20 @@ namespace OOPControlApplication
             return size;
         }
 
+        public string GetDescription(string text)
+        {
+            string description = "";
+            for (int i = text.LastIndexOf(';'); i < text.Length; i++)
+            {
+                if ( char.IsLetterOrDigit(text[i]) || char.IsPunctuation(text[i]))
+                {
+                    description += text[i];
+                }
+            }
+            return description;
+
+        }
+
         public string GetResolution(string text)
         {
             string size = GetSize(text);
@@ -94,6 +108,45 @@ namespace OOPControlApplication
                 }
             }
             return duration;
+        }
+
+
+        public IEnumerable<File> CreateData(string[] text)
+        {
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                string category = GetCategory(text[i]);
+                switch (category)
+                {
+                    case "Text":
+                        metaData.Add(new TextFile(GetFileName(text[i]), 
+                                                  GetExtension(text[i]), 
+                                                  GetSize(text[i]), 
+                                                  GetDescription(text[i])));
+                        return metaData;
+
+                    case "Image":
+                        metaData.Add(new ImageFile(GetFileName(text[i]),
+                                                  GetExtension(text[i]),
+                                                  GetSize(text[i]),
+                                                  GetResolution(text[i])));
+                        return metaData;
+
+                    case "Movie":
+                        metaData.Add(new MovieFile(GetFileName(text[i]),
+                                                  GetExtension(text[i]),
+                                                  GetSize(text[i]),
+                                                  GetResolution(text[i]),
+                                                  GetDuration(text[i])));
+                        return metaData;
+
+                    default:return metaData.DefaultIfEmpty();
+                        
+                }
+            }
+
+            return metaData;
         }
     }
 }

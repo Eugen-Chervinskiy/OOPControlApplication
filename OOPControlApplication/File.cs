@@ -8,7 +8,7 @@ namespace OOPControlApplication
 {
     public class File
     {
-        protected readonly string fileCategory;
+        
         protected readonly string fileName;
         protected readonly string fileExtension;
         protected readonly string fileSize;
@@ -22,7 +22,10 @@ namespace OOPControlApplication
 
         public virtual void PrintFileData()
         {
-            Console.WriteLine();
+            Console.WriteLine($"{this.fileName}\r\n" +
+                $"{this.fileExtension}\r\n" +
+                $"{this.fileSize}");
+            
         }
 
     }

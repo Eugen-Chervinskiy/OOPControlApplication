@@ -9,7 +9,7 @@ namespace OOPControlApplication
     class ImageFile : File
     {
         private readonly string fileResolution;
-        protected ImageFile(string fileName, 
+        public ImageFile(string fileName, 
                             string fileExtension, 
                             string fileSize,
                             string fileResolution) :
@@ -25,6 +25,7 @@ namespace OOPControlApplication
         public override void PrintFileData()
         {
             base.PrintFileData();
+            Console.WriteLine($"{this.fileResolution}");
         }
     }
 }

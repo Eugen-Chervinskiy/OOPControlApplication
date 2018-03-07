@@ -9,7 +9,7 @@ namespace OOPControlApplication
     class TextFile : File
     {
         private readonly string fielDescription;
-        protected TextFile(string fileName, 
+        public TextFile(string fileName, 
                            string fileExtension, 
                            string fileSize,
                            string fileDescription) :
@@ -24,6 +24,7 @@ namespace OOPControlApplication
         public override void PrintFileData()
         {
             base.PrintFileData();
+            Console.WriteLine($"{this.fielDescription}");
         }
     }
 }
