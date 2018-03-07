@@ -18,6 +18,13 @@ namespace OOPControlApplication
 
 
             string[] fileData = dataInput.Split('\n');
+
+            DataParser parser = new DataParser();
+
+            Console.WriteLine(parser.GetSize(fileData[4]));
+            Console.WriteLine(parser.GetCategory(fileData[4]));
+
+            Console.ReadKey();
         }
     }
 }
