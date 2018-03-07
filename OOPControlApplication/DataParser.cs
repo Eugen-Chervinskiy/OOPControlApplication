@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace OOPControlApplication
 {
@@ -111,43 +109,7 @@ namespace OOPControlApplication
         }
 
 
-        //public List<File> CreateData(string[] text)
-        //{
-
-        //    for (int i = 0; i < text.Length; i++)
-        //    {
-        //        string category = GetCategory(text[i]);
-        //        switch (category)
-        //        {
-        //            case "Text":
-        //                metaData.Add(new TextFile(GetFileName(text[i]), 
-        //                                          GetExtension(text[i]), 
-        //                                          GetSize(text[i]), 
-        //                                          GetDescription(text[i])));
-        //                return metaData;
-
-        //            case "Image":
-        //                metaData.Add(new ImageFile(GetFileName(text[i]),
-        //                                          GetExtension(text[i]),
-        //                                          GetSize(text[i]),
-        //                                          GetResolution(text[i])));
-        //                return metaData;
-
-        //            case "Movie":
-        //                metaData.Add(new MovieFile(GetFileName(text[i]),
-        //                                          GetExtension(text[i]),
-        //                                          GetSize(text[i]),
-        //                                          GetResolution(text[i]),
-        //                                          GetDuration(text[i])));
-        //                return metaData;
-
-        //            default:return metaData;
-
-        //        }
-        //    }
-
-        //    return metaData;
-        //}
+       
 
         public List<File> CreateData(string text)
         {
