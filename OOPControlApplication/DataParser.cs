@@ -145,11 +145,12 @@ namespace OOPControlApplication
 
         public void PrintDataInfo()
         {
-            Console.WriteLine("Text Files:");
-            foreach (File item in metaData)
+            
+            foreach (var item in metaData)
             {
                 
                 item.PrintFileData();
+                
             }
             
         }

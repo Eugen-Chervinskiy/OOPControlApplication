@@ -18,6 +18,13 @@ namespace OOPControlApplication
             this.fielDescription = fileDescription;
         }
 
+        public override string FileCategory
+        {
+            get
+            {
+                return "TextFile";
+            }
+        }
         public override void PrintFileData()
         {
             base.PrintFileData();

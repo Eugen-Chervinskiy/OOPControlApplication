@@ -19,10 +19,18 @@ namespace OOPControlApplication
             this.fileResolution = fileResolution;
         }
 
+        public override string FileCategory
+        {
+            get
+            {
+                return "ImageFile";
+            }
+        }
+
         public override void PrintFileData()
         {
             base.PrintFileData();
-            Console.WriteLine($"Resolution: {this.fileResolution}\r\n");
+            Console.WriteLine($"Resolution: {this.fileResolution}");
         }
     }
 }

@@ -22,6 +22,13 @@ namespace OOPControlApplication
             this.fileDuration = fileDuration;
         }
 
+        public override string FileCategory
+        {
+            get
+            {
+                return "MovieFile";
+            }
+        }
         public override void PrintFileData()
         {
             base.PrintFileData();
